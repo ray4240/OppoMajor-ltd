@@ -7,7 +7,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
       --navy:   #0B1D3A;
       --blue:   #1557A8;
@@ -18,11 +17,8 @@
       --text:   #1A2A40;
       --muted:  #5A6A7A;
     }
-
     html { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); }
-
-    /* ── NAV ── */
     nav {
       position: fixed; top: 0; width: 100%; z-index: 100;
       background: rgba(11,29,58,0.96); backdrop-filter: blur(8px);
@@ -39,8 +35,6 @@
     .nav-cta:hover { opacity: .88; }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
     .hamburger span { width: 24px; height: 2px; background: white; border-radius: 2px; }
-
-    /* ── HERO ── */
     .hero {
       min-height: 100vh;
       background: #061829;
@@ -48,85 +42,29 @@
       padding: 100px 6vw 60px;
       position: relative; overflow: hidden;
     }
-    .hero-scene {
-      position: absolute; inset: 0; width: 100%; height: 100%;
-    }
-    /* Sky gradient */
-    .hero-sky {
-      position: absolute; inset: 0;
-      background: linear-gradient(180deg, #061829 0%, #0a2540 30%, #0e3a6e 60%, #1a5fa8 80%, #1e6fbb 100%);
-    }
-    /* Stars */
+    .hero-scene { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .hero-sky { position: absolute; inset: 0; background: linear-gradient(180deg, #061829 0%, #0a2540 30%, #0e3a6e 60%, #1a5fa8 80%, #1e6fbb 100%); }
     .hero-stars { position: absolute; inset: 0; }
-    /* Sea */
-    .hero-sea {
-      position: absolute; bottom: 0; left: 0; right: 0; height: 38%;
-      background: linear-gradient(180deg, #0a3560 0%, #062244 60%, #041830 100%);
-    }
-    /* Wave animation */
-    .hero-waves {
-      position: absolute; bottom: 38%; left: 0; right: 0; height: 80px;
-      overflow: hidden;
-    }
-    .wave {
-      position: absolute; bottom: 0; left: -100%; width: 300%;
-      height: 60px; border-radius: 100% 100% 0 0;
-      animation: waveMove 6s linear infinite;
-    }
+    .hero-sea { position: absolute; bottom: 0; left: 0; right: 0; height: 38%; background: linear-gradient(180deg, #0a3560 0%, #062244 60%, #041830 100%); }
+    .hero-waves { position: absolute; bottom: 38%; left: 0; right: 0; height: 80px; overflow: hidden; }
+    .wave { position: absolute; bottom: 0; left: -100%; width: 300%; height: 60px; border-radius: 100% 100% 0 0; animation: waveMove 6s linear infinite; }
     .wave1 { background: rgba(30,111,187,0.45); animation-duration: 7s; }
     .wave2 { background: rgba(21,87,168,0.3); animation-duration: 9s; animation-delay: -3s; bottom: 6px; }
     .wave3 { background: rgba(10,53,96,0.5); animation-duration: 5s; animation-delay: -1.5s; bottom: 12px; }
-    @keyframes waveMove {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(33.33%); }
-    }
-    /* Ship */
-    .hero-ship {
-      position: absolute;
-      bottom: 36%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: min(680px, 90vw);
-      animation: shipRock 8s ease-in-out infinite;
-      transform-origin: center bottom;
-    }
+    @keyframes waveMove { 0% { transform: translateX(0); } 100% { transform: translateX(33.33%); } }
+    .hero-ship { position: absolute; bottom: 36%; left: 50%; transform: translateX(-50%); width: min(680px, 90vw); animation: shipRock 8s ease-in-out infinite; transform-origin: center bottom; }
     @keyframes shipRock {
       0%, 100% { transform: translateX(-50%) translateY(0px) rotate(0deg); }
       25% { transform: translateX(-50%) translateY(-4px) rotate(0.4deg); }
       75% { transform: translateX(-50%) translateY(2px) rotate(-0.3deg); }
     }
-    /* Horizon glow */
-    .hero-horizon {
-      position: absolute;
-      bottom: 36%; left: 0; right: 0; height: 4px;
-      background: linear-gradient(90deg, transparent, rgba(59,159,232,0.4), rgba(244,180,0,0.2), rgba(59,159,232,0.4), transparent);
-    }
-    /* Searchlight beam */
-    .hero-beam {
-      position: absolute;
-      bottom: 50%; left: 50%;
-      width: 200px; height: 400px;
-      background: linear-gradient(180deg, rgba(244,180,0,0.0) 0%, rgba(244,180,0,0.04) 100%);
-      transform: translateX(-50%) rotate(-20deg);
-      transform-origin: bottom center;
-      animation: beamSweep 10s ease-in-out infinite;
-      pointer-events: none;
-    }
-    @keyframes beamSweep {
-      0%, 100% { transform: translateX(-50%) rotate(-20deg); }
-      50% { transform: translateX(-50%) rotate(20deg); }
-    }
+    .hero-horizon { position: absolute; bottom: 36%; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, transparent, rgba(59,159,232,0.4), rgba(244,180,0,0.2), rgba(59,159,232,0.4), transparent); }
+    .hero-beam { position: absolute; bottom: 50%; left: 50%; width: 200px; height: 400px; background: linear-gradient(180deg, rgba(244,180,0,0.0) 0%, rgba(244,180,0,0.04) 100%); transform: translateX(-50%) rotate(-20deg); transform-origin: bottom center; animation: beamSweep 10s ease-in-out infinite; pointer-events: none; }
+    @keyframes beamSweep { 0%, 100% { transform: translateX(-50%) rotate(-20deg); } 50% { transform: translateX(-50%) rotate(20deg); } }
     .hero-inner { max-width: 900px; text-align: center; position: relative; }
     .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: .78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--sky); margin-bottom: 20px; }
     .hero-eyebrow::before, .hero-eyebrow::after { content: ''; flex: 1; width: 30px; height: 1px; background: var(--sky); opacity: .5; }
-    h1 {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: clamp(3rem, 9vw, 7rem);
-      line-height: .95;
-      color: var(--white);
-      text-transform: uppercase;
-      letter-spacing: .01em;
-    }
+    h1 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(3rem, 9vw, 7rem); line-height: .95; color: var(--white); text-transform: uppercase; letter-spacing: .01em; }
     h1 em { font-style: normal; color: var(--gold); }
     .hero-sub { margin: 24px auto 0; max-width: 520px; color: rgba(255,255,255,.72); font-size: 1.05rem; line-height: 1.7; }
     .hero-actions { margin-top: 40px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
@@ -138,16 +76,12 @@
     .stat { text-align: center; }
     .stat-num { font-family: 'Barlow Condensed', sans-serif; font-size: 2.4rem; font-weight: 900; color: var(--gold); line-height: 1; }
     .stat-label { font-size: .78rem; color: rgba(255,255,255,.55); letter-spacing: .1em; text-transform: uppercase; margin-top: 4px; }
-
-    /* ── SECTION BASE ── */
     section { padding: 90px 6vw; }
     .section-tag { font-size: .75rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--blue); margin-bottom: 10px; }
     .section-title { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; color: var(--navy); text-transform: uppercase; }
     .section-title em { font-style: normal; color: var(--blue); }
     .section-body { margin-top: 14px; color: var(--muted); line-height: 1.75; max-width: 500px; }
     .divider { width: 48px; height: 3px; background: var(--gold); border-radius: 2px; margin: 16px 0; }
-
-    /* ── PROMISE STRIP ── */
     .promise { background: var(--light); }
     .promise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; max-width: 960px; margin: 0 auto; }
     .promise-card { text-align: center; padding: 32px 20px; background: var(--white); border-radius: 8px; box-shadow: 0 2px 16px rgba(11,29,58,.07); transition: transform .2s, box-shadow .2s; }
@@ -156,27 +90,18 @@
     .promise-icon svg { width: 26px; height: 26px; stroke: var(--gold); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
     .promise-card h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; letter-spacing: .05em; text-transform: uppercase; color: var(--navy); margin-bottom: 8px; }
     .promise-card p { font-size: .88rem; color: var(--muted); line-height: 1.6; }
-
-    /* ── SERVICES ── */
     .services { background: var(--navy); }
     .services .section-title { color: var(--white); }
     .services .section-body { color: rgba(255,255,255,.6); }
     .services .section-tag { color: var(--sky); }
     .services-grid { margin-top: 50px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
-    .svc-card {
-      background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
-      border-radius: 8px; padding: 32px 28px;
-      transition: background .2s, border-color .2s;
-      position: relative; overflow: hidden;
-    }
+    .svc-card { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: 8px; padding: 32px 28px; transition: background .2s, border-color .2s; position: relative; overflow: hidden; }
     .svc-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform .3s; }
     .svc-card:hover { background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.2); }
     .svc-card:hover::after { transform: scaleX(1); }
     .svc-icon { font-size: 2rem; margin-bottom: 16px; }
     .svc-card h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.25rem; text-transform: uppercase; letter-spacing: .06em; color: var(--white); margin-bottom: 10px; }
     .svc-card p { font-size: .88rem; color: rgba(255,255,255,.55); line-height: 1.65; }
-
-    /* ── COMMITMENT ── */
     .commitment { background: var(--white); }
     .commit-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; max-width: 1100px; margin: 0 auto; }
     .commit-badges { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
@@ -184,43 +109,31 @@
     .badge-icon { font-size: 1.8rem; }
     .badge h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; text-transform: uppercase; letter-spacing: .07em; color: var(--navy); }
     .badge p { font-size: .82rem; color: var(--muted); line-height: 1.5; }
-
-    /* ── QUOTE BAND ── */
     .quote-band { background: var(--blue); padding: 60px 6vw; text-align: center; }
     .quote-band blockquote { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(1.5rem, 3.5vw, 2.4rem); color: var(--white); line-height: 1.25; max-width: 700px; margin: 0 auto; }
     .quote-band blockquote strong { color: var(--gold); }
     .quote-band cite { display: block; margin-top: 20px; font-size: .82rem; color: rgba(255,255,255,.55); letter-spacing: .1em; font-style: normal; text-transform: uppercase; }
-
-    /* ── CONTACT ── */
     .contact { background: var(--light); }
     .contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1000px; margin: 0 auto; align-items: start; }
     .contact-form { display: flex; flex-direction: column; gap: 16px; }
-    .contact-form input, .contact-form textarea, .contact-form select {
-      width: 100%; padding: 13px 16px; border: 1.5px solid #D0DCE8; border-radius: 5px;
-      font-family: 'Inter', sans-serif; font-size: .92rem; background: var(--white); color: var(--text);
-      transition: border-color .2s;
-    }
+    .contact-form input, .contact-form textarea, .contact-form select { width: 100%; padding: 13px 16px; border: 1.5px solid #D0DCE8; border-radius: 5px; font-family: 'Inter', sans-serif; font-size: .92rem; background: var(--white); color: var(--text); transition: border-color .2s; }
     .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus { outline: none; border-color: var(--blue); }
     .contact-form textarea { height: 130px; resize: vertical; }
     .contact-form button { background: var(--navy); color: var(--white); font-weight: 700; padding: 14px; border: none; border-radius: 5px; font-size: .95rem; cursor: pointer; letter-spacing: .05em; transition: background .2s; }
     .contact-form button:hover { background: var(--blue); }
+    .contact-form button:disabled { opacity: .6; cursor: not-allowed; }
     .contact-info { display: flex; flex-direction: column; gap: 24px; }
     .contact-item { display: flex; gap: 16px; align-items: flex-start; }
     .contact-item .ci-icon { width: 44px; height: 44px; border-radius: 50%; background: var(--navy); flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
     .contact-item .ci-icon svg { width: 20px; height: 20px; stroke: var(--gold); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
     .ci-label { font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
     .ci-val { font-size: 1rem; font-weight: 600; color: var(--navy); margin-top: 2px; }
-
-    /* ── FOOTER ── */
     footer { background: var(--navy); color: rgba(255,255,255,.5); padding: 32px 6vw; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
     footer .footer-logo { font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; color: var(--white); letter-spacing: .05em; }
     footer .footer-tagline { font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); }
-
-    /* ── TOAST ── */
-    #toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(80px); background: var(--navy); color: white; padding: 14px 28px; border-radius: 6px; font-size: .92rem; font-weight: 500; opacity: 0; transition: transform .4s, opacity .4s; z-index: 999; pointer-events: none; }
+    #toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(80px); background: #16a34a; color: white; padding: 14px 28px; border-radius: 6px; font-size: .92rem; font-weight: 500; opacity: 0; transition: transform .4s, opacity .4s; z-index: 999; pointer-events: none; }
     #toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
-
-    /* ── RESPONSIVE ── */
+    #toast.error { background: #dc2626; }
     @media (max-width: 768px) {
       .nav-links, .nav-cta { display: none; }
       .hamburger { display: flex; }
@@ -228,33 +141,15 @@
       .commit-badges { grid-template-columns: 1fr 1fr; }
       .hero-stats { gap: 24px; }
     }
-    @media (max-width: 480px) {
-      .commit-badges { grid-template-columns: 1fr; }
-    }
-
-    /* ── WHATSAPP BUTTON ── */
-    .wa-btn {
-      position: fixed; bottom: 28px; right: 28px; z-index: 999;
-      display: flex; align-items: center; gap: 10px;
-      background: #25D366; color: white;
-      padding: 12px 20px 12px 14px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 700; font-size: .9rem;
-      box-shadow: 0 4px 20px rgba(37,211,102,.45);
-      transition: transform .2s, box-shadow .2s;
-    }
+    @media (max-width: 480px) { .commit-badges { grid-template-columns: 1fr; } }
+    .wa-btn { position: fixed; bottom: 28px; right: 28px; z-index: 999; display: flex; align-items: center; gap: 10px; background: #25D366; color: white; padding: 12px 20px 12px 14px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: .9rem; box-shadow: 0 4px 20px rgba(37,211,102,.45); transition: transform .2s, box-shadow .2s; }
     .wa-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(37,211,102,.55); }
     .wa-btn svg { width: 32px; height: 32px; flex-shrink: 0; }
     @media (max-width: 600px) { .wa-label { display: none; } .wa-btn { padding: 12px; } }
   </style>
-  <script>
-  window.__VERCEL_TOOLBAR__ = false;
-</script>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">
     <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -271,132 +166,38 @@
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a href="#contact" class="nav-cta">GET A QUOTE</a>
-  <div class="hamburger" onclick="this.classList.toggle('open')">
-    <span></span><span></span><span></span>
-  </div>
+  <div class="hamburger"><span></span><span></span><span></span></div>
 </nav>
 
-<!-- HERO -->
 <section class="hero" id="home">
-
-  <!-- Sea scene background -->
   <div class="hero-scene">
     <div class="hero-sky"></div>
-
-    <!-- Stars -->
     <svg class="hero-stars" viewBox="0 0 1400 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <circle cx="80" cy="40" r="1.2" fill="white" opacity=".7"/>
-      <circle cx="200" cy="80" r=".8" fill="white" opacity=".5"/>
-      <circle cx="340" cy="30" r="1.4" fill="white" opacity=".8"/>
-      <circle cx="480" cy="60" r=".9" fill="white" opacity=".6"/>
-      <circle cx="620" cy="20" r="1.1" fill="white" opacity=".7"/>
-      <circle cx="750" cy="55" r=".7" fill="white" opacity=".5"/>
-      <circle cx="900" cy="35" r="1.3" fill="white" opacity=".8"/>
-      <circle cx="1050" cy="70" r=".8" fill="white" opacity=".6"/>
-      <circle cx="1180" cy="25" r="1.0" fill="white" opacity=".7"/>
-      <circle cx="1320" cy="50" r="1.2" fill="white" opacity=".5"/>
-      <circle cx="150" cy="130" r=".9" fill="white" opacity=".4"/>
-      <circle cx="420" cy="110" r="1.1" fill="white" opacity=".6"/>
-      <circle cx="660" cy="140" r=".7" fill="white" opacity=".5"/>
-      <circle cx="880" cy="100" r="1.2" fill="white" opacity=".7"/>
-      <circle cx="1100" cy="120" r=".8" fill="white" opacity=".4"/>
-      <circle cx="1260" cy="90" r="1.0" fill="white" opacity=".6"/>
-      <!-- Moon -->
-      <circle cx="1250" cy="80" r="28" fill="#e8f4ff" opacity=".9"/>
-      <circle cx="1262" cy="68" r="22" fill="#0a2540" opacity=".85"/>
-      <!-- Moon glow -->
-      <circle cx="1250" cy="80" r="40" fill="none" stroke="#e8f4ff" stroke-width="1" opacity=".2"/>
+      <circle cx="80" cy="40" r="1.2" fill="white" opacity=".7"/><circle cx="200" cy="80" r=".8" fill="white" opacity=".5"/><circle cx="340" cy="30" r="1.4" fill="white" opacity=".8"/><circle cx="480" cy="60" r=".9" fill="white" opacity=".6"/><circle cx="620" cy="20" r="1.1" fill="white" opacity=".7"/><circle cx="750" cy="55" r=".7" fill="white" opacity=".5"/><circle cx="900" cy="35" r="1.3" fill="white" opacity=".8"/><circle cx="1050" cy="70" r=".8" fill="white" opacity=".6"/><circle cx="1180" cy="25" r="1.0" fill="white" opacity=".7"/><circle cx="1320" cy="50" r="1.2" fill="white" opacity=".5"/>
+      <circle cx="1250" cy="80" r="28" fill="#e8f4ff" opacity=".9"/><circle cx="1262" cy="68" r="22" fill="#0a2540" opacity=".85"/><circle cx="1250" cy="80" r="40" fill="none" stroke="#e8f4ff" stroke-width="1" opacity=".2"/>
     </svg>
-
-    <!-- Cargo ship SVG -->
     <div class="hero-ship" aria-hidden="true">
       <svg viewBox="0 0 680 220" xmlns="http://www.w3.org/2000/svg" width="100%">
-        <!-- Hull -->
         <path d="M60 160 L80 120 L600 120 L640 160 L630 185 Q340 195 50 185 Z" fill="#1a3a5c"/>
         <path d="M60 160 L640 160 L630 185 Q340 192 50 185 Z" fill="#0d2540"/>
-        <!-- Red waterline stripe -->
         <path d="M62 178 Q340 186 618 178 L630 185 Q340 192 50 185 Z" fill="#c0392b"/>
-
-        <!-- Main deck -->
         <rect x="80" y="108" width="520" height="14" rx="2" fill="#22507a"/>
-
-        <!-- Superstructure (bridge/cabin) left -->
         <rect x="90" y="58" width="100" height="52" rx="3" fill="#1e4870"/>
         <rect x="90" y="50" width="100" height="14" rx="2" fill="#2a5a8a"/>
-        <!-- Bridge windows -->
-        <rect x="98" y="62" width="16" height="10" rx="2" fill="#a8d8f0" opacity=".8"/>
-        <rect x="120" y="62" width="16" height="10" rx="2" fill="#a8d8f0" opacity=".8"/>
-        <rect x="142" y="62" width="16" height="10" rx="2" fill="#f4e04a" opacity=".9"/>
-        <rect x="164" y="62" width="12" height="10" rx="2" fill="#a8d8f0" opacity=".7"/>
-        <!-- Radar mast -->
-        <line x1="140" y1="50" x2="140" y2="20" stroke="#3a6a9a" stroke-width="2.5"/>
-        <line x1="125" y1="26" x2="155" y2="26" stroke="#3a6a9a" stroke-width="2"/>
-        <circle cx="140" cy="20" r="4" fill="#F4B400"/>
-
-        <!-- Funnel/Smokestack -->
-        <rect x="105" y="30" width="22" height="26" rx="3" fill="#1557A8"/>
-        <rect x="103" y="28" width="26" height="6" rx="2" fill="#0d3d7a"/>
-        <!-- Smoke puffs -->
-        <circle cx="116" cy="18" r="7" fill="#2a3a4a" opacity=".6"/>
-        <circle cx="122" cy="10" r="5" fill="#2a3a4a" opacity=".4"/>
-        <circle cx="110" cy="12" r="4" fill="#2a3a4a" opacity=".3"/>
-
-        <!-- Cargo containers - row 1 -->
-        <rect x="215" y="82" width="52" height="28" rx="2" fill="#e74c3c"/>
-        <rect x="270" y="82" width="52" height="28" rx="2" fill="#2980b9"/>
-        <rect x="325" y="82" width="52" height="28" rx="2" fill="#27ae60"/>
-        <rect x="380" y="82" width="52" height="28" rx="2" fill="#e67e22"/>
-        <rect x="435" y="82" width="52" height="28" rx="2" fill="#8e44ad"/>
-        <rect x="490" y="82" width="52" height="28" rx="2" fill="#e74c3c"/>
-        <rect x="545" y="82" width="45" height="28" rx="2" fill="#2980b9"/>
-        <!-- Container lines -->
-        <line x1="241" y1="82" x2="241" y2="110" stroke="rgba(0,0,0,.3)" stroke-width="1"/>
-        <line x1="296" y1="82" x2="296" y2="110" stroke="rgba(0,0,0,.3)" stroke-width="1"/>
-        <line x1="351" y1="82" x2="351" y2="110" stroke="rgba(0,0,0,.3)" stroke-width="1"/>
-        <line x1="406" y1="82" x2="406" y2="110" stroke="rgba(0,0,0,.3)" stroke-width="1"/>
-        <line x1="461" y1="82" x2="461" y2="110" stroke="rgba(0,0,0,.3)" stroke-width="1"/>
-        <line x1="516" y1="82" x2="516" y2="110" stroke="rgba(0,0,0,.3)" stroke-width="1"/>
-
-        <!-- Cargo containers - row 2 -->
-        <rect x="215" y="56" width="52" height="28" rx="2" fill="#2980b9"/>
-        <rect x="270" y="56" width="52" height="28" rx="2" fill="#27ae60"/>
-        <rect x="325" y="56" width="52" height="28" rx="2" fill="#e74c3c"/>
-        <rect x="380" y="56" width="52" height="28" rx="2" fill="#8e44ad"/>
-        <rect x="435" y="56" width="52" height="28" rx="2" fill="#e67e22"/>
-        <rect x="490" y="56" width="52" height="28" rx="2" fill="#27ae60"/>
-        <rect x="545" y="56" width="45" height="28" rx="2" fill="#e74c3c"/>
-
-        <!-- Cargo containers - row 3 (partial) -->
-        <rect x="270" y="30" width="52" height="28" rx="2" fill="#e67e22"/>
-        <rect x="325" y="30" width="52" height="28" rx="2" fill="#2980b9"/>
-        <rect x="380" y="30" width="52" height="28" rx="2" fill="#27ae60"/>
-        <rect x="435" y="30" width="52" height="28" rx="2" fill="#e74c3c"/>
-        <rect x="490" y="30" width="52" height="28" rx="2" fill="#8e44ad"/>
-
-        <!-- Bow anchor detail -->
-        <circle cx="100" cy="172" r="6" fill="#0d2540" stroke="#3a6a9a" stroke-width="1.5"/>
-        <circle cx="595" cy="172" r="5" fill="#0d2540" stroke="#3a6a9a" stroke-width="1.5"/>
-
-        <!-- Water reflection shimmer under hull -->
-        <path d="M80 188 Q200 194 340 190 Q480 186 610 188" stroke="rgba(59,159,232,0.35)" stroke-width="2" fill="none"/>
-        <path d="M100 196 Q250 202 340 198 Q440 194 580 196" stroke="rgba(59,159,232,0.18)" stroke-width="1.5" fill="none"/>
+        <rect x="98" y="62" width="16" height="10" rx="2" fill="#a8d8f0" opacity=".8"/><rect x="120" y="62" width="16" height="10" rx="2" fill="#a8d8f0" opacity=".8"/><rect x="142" y="62" width="16" height="10" rx="2" fill="#f4e04a" opacity=".9"/><rect x="164" y="62" width="12" height="10" rx="2" fill="#a8d8f0" opacity=".7"/>
+        <line x1="140" y1="50" x2="140" y2="20" stroke="#3a6a9a" stroke-width="2.5"/><line x1="125" y1="26" x2="155" y2="26" stroke="#3a6a9a" stroke-width="2"/><circle cx="140" cy="20" r="4" fill="#F4B400"/>
+        <rect x="105" y="30" width="22" height="26" rx="3" fill="#1557A8"/><rect x="103" y="28" width="26" height="6" rx="2" fill="#0d3d7a"/>
+        <circle cx="116" cy="18" r="7" fill="#2a3a4a" opacity=".6"/><circle cx="122" cy="10" r="5" fill="#2a3a4a" opacity=".4"/>
+        <rect x="215" y="82" width="52" height="28" rx="2" fill="#e74c3c"/><rect x="270" y="82" width="52" height="28" rx="2" fill="#2980b9"/><rect x="325" y="82" width="52" height="28" rx="2" fill="#27ae60"/><rect x="380" y="82" width="52" height="28" rx="2" fill="#e67e22"/><rect x="435" y="82" width="52" height="28" rx="2" fill="#8e44ad"/><rect x="490" y="82" width="52" height="28" rx="2" fill="#e74c3c"/><rect x="545" y="82" width="45" height="28" rx="2" fill="#2980b9"/>
+        <rect x="215" y="56" width="52" height="28" rx="2" fill="#2980b9"/><rect x="270" y="56" width="52" height="28" rx="2" fill="#27ae60"/><rect x="325" y="56" width="52" height="28" rx="2" fill="#e74c3c"/><rect x="380" y="56" width="52" height="28" rx="2" fill="#8e44ad"/><rect x="435" y="56" width="52" height="28" rx="2" fill="#e67e22"/><rect x="490" y="56" width="52" height="28" rx="2" fill="#27ae60"/><rect x="545" y="56" width="45" height="28" rx="2" fill="#e74c3c"/>
+        <rect x="270" y="30" width="52" height="28" rx="2" fill="#e67e22"/><rect x="325" y="30" width="52" height="28" rx="2" fill="#2980b9"/><rect x="380" y="30" width="52" height="28" rx="2" fill="#27ae60"/><rect x="435" y="30" width="52" height="28" rx="2" fill="#e74c3c"/><rect x="490" y="30" width="52" height="28" rx="2" fill="#8e44ad"/>
       </svg>
     </div>
-
-    <!-- Horizon glow -->
     <div class="hero-horizon"></div>
-    <!-- Light beam -->
     <div class="hero-beam"></div>
-    <!-- Sea -->
     <div class="hero-sea"></div>
-    <!-- Waves -->
-    <div class="hero-waves">
-      <div class="wave wave1"></div>
-      <div class="wave wave2"></div>
-      <div class="wave wave3"></div>
-    </div>
+    <div class="hero-waves"><div class="wave wave1"></div><div class="wave wave2"></div><div class="wave wave3"></div></div>
   </div>
-
   <div class="hero-inner">
     <div class="hero-eyebrow">Shipping &amp; Logistics Solutions</div>
     <h1>We Move<br>What Matters<br><em>To You</em></h1>
@@ -413,7 +214,6 @@
   </div>
 </section>
 
-<!-- PROMISE -->
 <section class="promise" id="promise">
   <div style="text-align:center; margin-bottom:48px;">
     <div class="section-tag">Our Promise</div>
@@ -421,73 +221,27 @@
     <div class="divider" style="margin:16px auto;"></div>
   </div>
   <div class="promise-grid">
-    <div class="promise-card">
-      <div class="promise-icon">
-        <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
-      </div>
-      <h3>Quality Goods</h3>
-      <p>We handle only quality goods you can trust — no shortcuts, no compromises.</p>
-    </div>
-    <div class="promise-card">
-      <div class="promise-icon">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-      </div>
-      <h3>Cheaper Price</h3>
-      <p>Quality services at a price that works for you and your business bottom line.</p>
-    </div>
-    <div class="promise-card">
-      <div class="promise-icon">
-        <svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>
-      </div>
-      <h3>Quality Delivery</h3>
-      <p>We deliver with care, maintaining the highest standards throughout the journey.</p>
-    </div>
-    <div class="promise-card">
-      <div class="promise-icon">
-        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-      </div>
-      <h3>We Deliver In Time</h3>
-      <p>On time, every time. Because your time matters — and we treat it that way.</p>
-    </div>
+    <div class="promise-card"><div class="promise-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><h3>Quality Goods</h3><p>We handle only quality goods you can trust — no shortcuts, no compromises.</p></div>
+    <div class="promise-card"><div class="promise-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><h3>Cheaper Price</h3><p>Quality services at a price that works for you and your business bottom line.</p></div>
+    <div class="promise-card"><div class="promise-icon"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></div><h3>Quality Delivery</h3><p>We deliver with care, maintaining the highest standards throughout the journey.</p></div>
+    <div class="promise-card"><div class="promise-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><h3>We Deliver In Time</h3><p>On time, every time. Because your time matters — and we treat it that way.</p></div>
   </div>
 </section>
 
-<!-- SERVICES -->
 <section class="services" id="services">
   <div class="section-tag">What We Offer</div>
   <h2 class="section-title" style="color:white;">Our <em style="color:var(--sky);">Services</em></h2>
   <div class="divider"></div>
   <p class="section-body">End-to-end logistics across sea, air, and land — tailored to move your goods safely, efficiently, and affordably.</p>
   <div class="services-grid">
-    <div class="svc-card">
-      <div class="svc-icon">🚢</div>
-      <h3>Sea Freight</h3>
-      <p>Cost-effective solutions for global shipping. Ideal for large volumes across international waters.</p>
-    </div>
-    <div class="svc-card">
-      <div class="svc-icon">✈️</div>
-      <h3>Air Freight</h3>
-      <p>Fast and secure delivery to anywhere in the world. When speed is your priority, we deliver.</p>
-    </div>
-    <div class="svc-card">
-      <div class="svc-icon">🚛</div>
-      <h3>Land Transport</h3>
-      <p>Reliable trucking and inland hauling services across borders and within the region.</p>
-    </div>
-    <div class="svc-card">
-      <div class="svc-icon">📦</div>
-      <h3>Cargo Handling</h3>
-      <p>Safe handling, warehousing, and distribution — your goods are always in expert hands.</p>
-    </div>
-    <div class="svc-card">
-      <div class="svc-icon">📋</div>
-      <h3>Customs Clearance</h3>
-      <p>Smooth documentation and clearance support. We handle the paperwork so you don't have to.</p>
-    </div>
+    <div class="svc-card"><div class="svc-icon">🚢</div><h3>Sea Freight</h3><p>Cost-effective solutions for global shipping. Ideal for large volumes across international waters.</p></div>
+    <div class="svc-card"><div class="svc-icon">✈️</div><h3>Air Freight</h3><p>Fast and secure delivery to anywhere in the world. When speed is your priority, we deliver.</p></div>
+    <div class="svc-card"><div class="svc-icon">🚛</div><h3>Land Transport</h3><p>Reliable trucking and inland hauling services across borders and within the region.</p></div>
+    <div class="svc-card"><div class="svc-icon">📦</div><h3>Cargo Handling</h3><p>Safe handling, warehousing, and distribution — your goods are always in expert hands.</p></div>
+    <div class="svc-card"><div class="svc-icon">📋</div><h3>Customs Clearance</h3><p>Smooth documentation and clearance support. We handle the paperwork so you don't have to.</p></div>
   </div>
 </section>
 
-<!-- COMMITMENT -->
 <section class="commitment" id="commitment">
   <div class="commit-inner">
     <div>
@@ -498,39 +252,19 @@
       <a href="#contact" class="btn-primary" style="display:inline-block; margin-top:32px;">WORK WITH US</a>
     </div>
     <div class="commit-badges">
-      <div class="badge">
-        <div class="badge-icon">🤝</div>
-        <h4>Trusted Partner</h4>
-        <p>Long-term relationships built on reliability.</p>
-      </div>
-      <div class="badge">
-        <div class="badge-icon">⚡</div>
-        <h4>Efficient Solutions</h4>
-        <p>Streamlined processes that save you time and cost.</p>
-      </div>
-      <div class="badge">
-        <div class="badge-icon">🌐</div>
-        <h4>Global Network</h4>
-        <p>Delivering across borders, connecting the world.</p>
-      </div>
-      <div class="badge">
-        <div class="badge-icon">🎯</div>
-        <h4>Customer Focused</h4>
-        <p>Your satisfaction is our priority, every single time.</p>
-      </div>
+      <div class="badge"><div class="badge-icon">🤝</div><h4>Trusted Partner</h4><p>Long-term relationships built on reliability.</p></div>
+      <div class="badge"><div class="badge-icon">⚡</div><h4>Efficient Solutions</h4><p>Streamlined processes that save you time and cost.</p></div>
+      <div class="badge"><div class="badge-icon">🌐</div><h4>Global Network</h4><p>Delivering across borders, connecting the world.</p></div>
+      <div class="badge"><div class="badge-icon">🎯</div><h4>Customer Focused</h4><p>Your satisfaction is our priority, every single time.</p></div>
     </div>
   </div>
 </section>
 
-<!-- QUOTE BAND -->
 <div class="quote-band">
-  <blockquote>
-    "Quality we handle. <strong>Price you love.</strong> Service you deserve."
-  </blockquote>
+  <blockquote>"Quality we handle. <strong>Price you love.</strong> Service you deserve."</blockquote>
   <cite>— Oppomajor LTD · Safe &amp; Secure · On-Time · Worldwide Reach · Satisfaction Guaranteed</cite>
 </div>
 
-<!-- CONTACT -->
 <section class="contact" id="contact">
   <div style="text-align:center; margin-bottom:50px;">
     <div class="section-tag">Get In Touch</div>
@@ -539,10 +273,10 @@
   </div>
   <div class="contact-inner">
     <div class="contact-form">
-      <input type="text" placeholder="Your Full Name" />
-      <input type="email" placeholder="Email Address" />
-      <input type="tel" placeholder="Phone Number" />
-      <select>
+      <input type="text" id="f-name" placeholder="Your Full Name" />
+      <input type="email" id="f-email" placeholder="Email Address" />
+      <input type="tel" id="f-phone" placeholder="Phone Number" />
+      <select id="f-service">
         <option value="" disabled selected>Select Service</option>
         <option>Sea Freight</option>
         <option>Air Freight</option>
@@ -550,45 +284,29 @@
         <option>Cargo Handling</option>
         <option>Customs Clearance</option>
       </select>
-      <textarea placeholder="Tell us about your shipment…"></textarea>
-      <button onclick="sendQuote()">SEND REQUEST</button>
+      <textarea id="f-message" placeholder="Tell us about your shipment…"></textarea>
+      <button id="send-btn" onclick="sendQuote()">SEND REQUEST</button>
     </div>
     <div class="contact-info">
       <div class="section-title" style="font-size:1.5rem;">We'd love to<br><em>hear from you.</em></div>
       <div class="divider"></div>
       <p style="color:var(--muted); font-size:.9rem; line-height:1.7;">Reach out via phone, email, or social media and our team will get back to you promptly.</p>
       <div class="contact-item">
-        <div class="ci-icon">
-          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 12a19.79 19.79 0 01-3.07-8.63A2 2 0 012 1.18h3a2 2 0 012 1.72c.13 1 .37 2 .7 2.94a2 2 0 01-.45 2.11L6.09 9c1.42 2.46 3.5 4.54 5.95 5.95l1.05-1.16a2 2 0 012.11-.45c.94.33 1.94.57 2.94.7a2 2 0 011.72 2z"/></svg>
-        </div>
-        <div>
-          <div class="ci-label">Phone</div>
-          <div class="ci-val">0116654482</div>
-        </div>
+        <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 12a19.79 19.79 0 01-3.07-8.63A2 2 0 012 1.18h3a2 2 0 012 1.72c.13 1 .37 2 .7 2.94a2 2 0 01-.45 2.11L6.09 9c1.42 2.46 3.5 4.54 5.95 5.95l1.05-1.16a2 2 0 012.11-.45c.94.33 1.94.57 2.94.7a2 2 0 011.72 2z"/></svg></div>
+        <div><div class="ci-label">Phone</div><div class="ci-val">0116654482</div></div>
       </div>
       <div class="contact-item">
-        <div class="ci-icon">
-          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        </div>
-        <div>
-          <div class="ci-label">Email</div>
-          <div class="ci-val">majorian8937@gmail.com</div>
-        </div>
+        <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <div><div class="ci-label">Email</div><div class="ci-val">majorian8937@gmail.com</div></div>
       </div>
       <div class="contact-item">
-        <div class="ci-icon">
-          <svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53A4.48 4.48 0 0016 3a4.48 4.48 0 00-4.48 4.48c0 .35.04.7.11 1.03A12.72 12.72 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
-        </div>
-        <div>
-          <div class="ci-label">Social</div>
-          <div class="ci-val">@oppomajor</div>
-        </div>
+        <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53A4.48 4.48 0 0016 3a4.48 4.48 0 00-4.48 4.48c0 .35.04.7.11 1.03A12.72 12.72 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></div>
+        <div><div class="ci-label">Social</div><div class="ci-val">@oppomajor</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div>
     <div class="footer-logo">OPPOMAJOR LTD</div>
@@ -598,7 +316,6 @@
   <div style="font-size:.78rem;">© 2026 Oppomajor LTD. All rights reserved.</div>
 </footer>
 
-<!-- WHATSAPP FLOAT BUTTON -->
 <a href="https://wa.me/254116654482?text=Hello%20Oppomajor%20LTD%2C%20I%27d%20like%20to%20enquire%20about%20your%20shipping%20services."
    class="wa-btn" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
   <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
@@ -611,13 +328,55 @@
 <div id="toast">✅ Quote request sent! We'll be in touch shortly.</div>
 
 <script>
-  function sendQuote() {
-    const t = document.getElementById('toast');
-    t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), 4000);
+  async function sendQuote() {
+    const name    = document.getElementById('f-name').value.trim();
+    const email   = document.getElementById('f-email').value.trim();
+    const phone   = document.getElementById('f-phone').value.trim();
+    const service = document.getElementById('f-service').value;
+    const message = document.getElementById('f-message').value.trim();
+    const btn     = document.getElementById('send-btn');
+
+    if (!name || !email || !message) {
+      showToast('⚠️ Please fill in your name, email, and message.', true);
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'SENDING…';
+
+    try {
+      const res = await fetch('https://formspree.io/f/xqeveezr', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ name, email, phone, service, message })
+      });
+
+      if (res.ok) {
+        showToast('✅ Quote request sent! We\'ll be in touch shortly.');
+        document.getElementById('f-name').value = '';
+        document.getElementById('f-email').value = '';
+        document.getElementById('f-phone').value = '';
+        document.getElementById('f-service').selectedIndex = 0;
+        document.getElementById('f-message').value = '';
+      } else {
+        showToast('❌ Something went wrong. Please try again or call us.', true);
+      }
+    } catch (err) {
+      showToast('❌ Network error. Please check your connection.', true);
+    }
+
+    btn.disabled = false;
+    btn.textContent = 'SEND REQUEST';
   }
 
-  // Smooth scroll for nav links
+  function showToast(msg, isError = false) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.toggle('error', isError);
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 5000);
+  }
+
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const target = document.querySelector(a.getAttribute('href'));
